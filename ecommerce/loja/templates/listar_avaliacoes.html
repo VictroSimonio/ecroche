@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block body %}
+
+<body>
+    <h1>Avaliações dos Produtos</h1>
+    <section class="conta">
+        <div class="conta__container">
+    <ul>
+        {% for avaliacao in avaliacoes %}
+            <li>
+                <hr>
+                <strong>{{ avaliacao.usuario.username }}</strong> avaliou o produto "<strong>{{ avaliacao.produto }}</strong>":
+                <hr>
+                <br>
+                <p>{{ avaliacao.comentario }}</p>
+                <br>
+                <p><em>Data: {{ avaliacao.data_criacao }}</em></p>
+                <br>
+            </li>
+        {% endfor %}
+    </ul>
+       
+    {% if user.is_authenticated %}
+
+    <a href="{% url 'avaliacao' %}" class="subtotal__botao">Escrever uma nova avaliação</a>
+        </div>
+    </section>
+    {% else %}
+       
+    {% endif %}
+</body>
+
+
+{% endblock %}

@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<main class="principal">
+    <section class="conta">
+
+
+    {% if alterado %}
+    <p><strong>Alterações salvas com sucesso</strong></p>
+    {% endif %}
+
+    {% if erro == "senha_invalida" %}
+    <p><strong>A nova senha deve ter pelo menos 8 caracteres, incluindo letras, números e ao menos um caractere especial.</strong></p>
+    {% endif %}
+
+
+    {% if erro == "formulario_invalido" %}
+    <p><strong>Formulário Inválido, tente novamente</strong></p>
+    {% endif %}
+
+    {% if erro == "senha_incorreta" %}
+    <p><strong>Senha incorreta</strong></p>
+    {% endif %}
+    
+    {% if erro == "senhas_diferentes" %}
+    <p><strong>Nova senha e confirmação da nova senha não estão iguais</strong></p>
+    {% endif %}
+
+    {% if erro == "email_existente" %}
+    <p><strong>Já existe um usuário com esse e-mail</strong></p>
+    {% endif %}
+
+      <div class="conta__container">
+        <div class="checkout__titulos">
+          <h2 class="checkout__titulo">Dados pessoais</h2>
+        </div>
+
+        <form
+          class="conta__form"
+          action="{% url 'minha_conta' %}"
+          method="post"
+        >
+        {% csrf_token %}
+          <div class="conta__item">
+            <label for="nome">Nome</label>
+            <input name="nome" type="text" placeholder="Nome Completo" 
+            {% if request.user.cliente.nome %}
+                value="{{ request.user.cliente.nome }}"
+            {% endif %} required />
+          </div>
+
+          <div class="conta__item conta__item--email">
+            <label for="email">E-mail</label>
+            <input name="email" type="email" placeholder="Email" value="{{ request.user.email }}" required />
+          </div>
+
+          <div class="conta__item">
+            <label for="telefone">Telefone</label>
+            <input 
+                name="telefone" 
+                type="tel" 
+                pattern="\d{10,11}" 
+                placeholder="Telefone" 
+                value="{{ request.user.cliente.telefone }}" 
+                title="Digite um telefone válido com 10 ou 11 dígitos" 
+                required
+            />
+        </div>
+        
+
+          <button class="subtotal__botao" type="submit">
+            Salvar alterações
+          </button>
+        </form>
+      </div>
+
+      <div class="conta__container">
+        <div class="checkout__titulos">
+          <h2 class="checkout__titulo">Alterar a Senha</h2>
+        </div>
+
+        <form
+          class="conta__form"
+          action="{% url 'minha_conta' %}"
+          method="post"
+        >
+        {% csrf_token %}
+          <div class="conta__item">
+            <label for="senha_atual">Senha Atual</label>
+            <input name="senha_atual" type="password" required/>
+          </div>
+
+          <br>
+
+          <div class="conta__item">
+            <label for="nova_senha">Nova Senha</label>
+            <input name="nova_senha" type="password" required/>
+          </div>
+
+          <div class="conta__item">
+            <label for="nova_senha_confirmacao">Confirmação da Nova Senha</label>
+            <input name="nova_senha_confirmacao" type="password" required/>
+          </div>
+
+          <button class="subtotal__botao" type="submit">
+            Salvar alterações
+          </button>
+        </form>
+      </div>
+    </section>
+  </main> 
+
+  <script>
+    function validarSenha() {
+      const senha = document.getElementById('nova_senha').value;
+      const confirmarSenha = document.getElementById('nova_senha_confirmacao').value;
+      const erroSenha = document.getElementById('erro-senha');
+  
+      // Regex para validar a senha
+      const regex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}|:"<>?]).{8,}$/;
+  
+      if (!regex.test(senha)) {
+        erroSenha.textContent = "A senha deve ter pelo menos 8 caracteres, incluindo letras, números e ao menos um caractere especial.";
+        erroSenha.style.display = "block";
+        return false;
+      }
+  
+      if (senha !== confirmarSenha) {
+        erroSenha.textContent = "As senhas não coincidem.";
+        erroSenha.style.display = "block";
+        return false;
+      }
+  
+      erroSenha.style.display = "none";
+      return true;
+    }
+  </script>
+
+{% endblock %}

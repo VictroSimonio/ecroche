@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+<main class="principal">
+    <section class="conta">
+      <div class="conta__container">
+        <div class="checkout__titulos">
+          <h2 class="checkout__titulo">Preencha seus dados para criar uma conta</h2>
+        </div>
+
+        {% if erro == "senha_invalida" %}
+        <p>A senha deve ter pelo menos 8 caracteres, incluindo letras, números e ao menos um caractere especial.</p>
+        {% endif %}
+
+
+        {% if erro == "preenchimento" %}
+        <p>Preencha todas as informações do formulário corretamente para criar uma conta</p>
+        {% endif %}
+
+        {% if erro == "email_invalido" %}
+        <p>Seu e-mail está inválido, tente novamente com outro e-mail</p>
+        {% endif %}
+
+        {% if erro == "usuario_existente" %}
+        <p>Já existe um usuário com esse e-mail, <a href="{% url 'fazer_login' %}">faça login</a></p>
+        {% endif %}
+
+        {% if erro == "senhas_diferentes" %}
+        <p>Senha e Confirmação de Senha não são iguais, tente novamente</p>
+        {% endif %}
+
+        <form
+          class="conta__form"
+          action="{% url 'criar_conta' %}"
+          method="post"
+        >
+        {% csrf_token %}
+
+          <div class="conta__item">
+            <label for="nome">Nome</label>
+            <input name="nome" type="text" placeholder="Nome Completo" required>
+          </div>
+        
+          <div class="conta__item conta__item--email">
+            <label for="email">E-mail</label>
+            <input name="email" type="email" placeholder="Email" required>
+          </div>
+
+          <div class="conta__item">
+            <label for="senha">Senha</label>
+            <input name="senha" type="password" placeholder="Senha" />
+          </div>
+
+          <div class="conta__item">
+            <label for="confirmar_senha">Confirmação da Senha</label>
+            <input name="confirmar_senha" type="password" placeholder="Senha" />
+          </div>
+
+          <button class="subtotal__botao" type="submit">
+            Criar Conta
+          </button>
+        </form>
+        <a href="{% url 'fazer_login' %}">Já tem uma conta? Fazer login</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function validarSenha() {
+      const senha = document.getElementById('senha').value;
+      const confirmarSenha = document.getElementById('confirmar_senha').value;
+      const erroSenha = document.getElementById('erro-senha');
+  
+      // Regex para validar a senha
+      const regex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}|:"<>?]).{8,}$/;
+  
+      if (!regex.test(senha)) {
+        erroSenha.textContent = "A senha deve ter pelo menos 8 caracteres, incluindo letras, números e ao menos um caractere especial.";
+        erroSenha.style.display = "block";
+        return false;
+      }
+  
+      if (senha !== confirmarSenha) {
+        erroSenha.textContent = "As senhas não coincidem.";
+        erroSenha.style.display = "block";
+        return false;
+      }
+  
+      erroSenha.style.display = "none";
+      return true;
+    }
+  </script>
+
+{% endblock %}

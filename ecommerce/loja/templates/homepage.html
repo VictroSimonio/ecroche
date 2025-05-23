@@ -1,13 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecommerce</title>
-</head>
-<body>
-    
-    Minha página está no ar
+{% extends 'base.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block body %}
+
+<div class="foto_homepage-section">
+    <a href="{% url 'loja' %}">
+        <img class="foto_homepage" src="{% static 'images/foto_paginicial.png' %}" alt="foto da página inicial">
+    </a>
+</div>
+
+{% for banner in banners %}
+<div class="banner">
+    <a href="{% url 'loja' %}{{ banner.link_destino }}">
+        <img class="foto_homepage" src="{{ banner.imagem.url }}" alt="banner">
+    </a>
+</div>
+{% endfor %}
+
+<div class="foto_homepage-section">
+    <a href="{% url 'listar_avaliacoes' %}">
+        <img class="foto_homepage" src="{% static 'images/avaliacoes.png' %}" alt="foto das avaliações">
+    </a>
+</div>
+
+{% endblock %}
