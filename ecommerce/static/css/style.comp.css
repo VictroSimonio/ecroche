@@ -1046,25 +1046,25 @@ img {
 .produto__imagem {
   height: auto;
   width: auto;
-  aspect-ratio: 300/500;
+  aspect-ratio: 100/200;
   overflow: hidden;
   position: relative;
 }
 .produto__imagem img {
   position: absolute;
-  top: 60%;
+  top: 50%;
   transform: translate(0, -50%);
   transition: transform ease-in-out 0.3s;
 }
 .produto__imagem img:hover {
-  transform: translate(0, -50%) scale(1.2);
+  transform: translate(0, -50%) scale(1.07);
 }
 .produto__textos {
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
   justify-content: start;
-  gap: 0.6rem;
+  gap: 0.8rem;
 }
 .produto__titulo {
   text-transform: uppercase;
@@ -1608,7 +1608,6 @@ img {
   gap: 1.6rem;
 }
 .s-produto__titulo {
-  font-family: serif;
   font-size: 3.9rem;
 }
 @media (max-width: 59.375em) {
@@ -1733,7 +1732,7 @@ img {
   }
 }
 .s-produto__carrossel-img {
-  width: calc(50% - 0.3rem);
+  width: calc(35% - 0.2rem);
 }
 @media (max-width: 46.875em) {
   .s-produto__carrossel-img {
@@ -1839,7 +1838,6 @@ img {
   }
 }
 .sacola__titulo {
-  font-family: serif;
   font-size: 2.76rem;
 }
 .sacola__realce-verde {
