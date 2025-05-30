@@ -9,14 +9,6 @@
     </a>
 </div>
 
-{% for banner in banners %}
-<div class="banner">
-    <a href="{% url 'loja' %}{{ banner.link_destino }}">
-        <img class="foto_homepage" src="{{ banner.imagem.url }}" alt="banner">
-    </a>
-</div>
-{% endfor %}
-
 <div class="foto_homepage-section">
     <a href="{% url 'listar_avaliacoes' %}">
         <img class="foto_homepage" src="{% static 'images/avaliacoes.png' %}" alt="foto das avaliações">

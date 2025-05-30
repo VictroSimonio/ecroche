@@ -12,14 +12,9 @@ from django.core.exceptions import ValidationError
 from datetime import datetime
 from .api_mercadopago import criar_pagamento
 
-
-
-
 # Create your views here.
 def homepage(request):
-    banners = Banner.objects.filter(ativo=True)
-    context = {"banners": banners}
-    return render(request, 'homepage.html', context)
+    return render(request, 'homepage.html')
 
 def loja(request, filtro=None):
     produtos = Produto.objects.filter(ativo=True)

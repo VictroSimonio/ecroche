@@ -52,6 +52,12 @@
                       href="{% url 'loja' %}{{ categoria.slug }}-bolsa"
                       >Bolsas</a
                     >
+                    <br>
+                    <a
+                      class="cabecalho__link cabecalho__link--tipo"
+                      href="{% url 'loja' %}{{ categoria.slug }}-chaveiro"
+                      >Chaveiros</a
+                    >
                   </li>
                 {% elif categoria.nome == "Moda" %}
                   <li>
@@ -59,6 +65,12 @@
                       class="cabecalho__link cabecalho__link--tipo"
                       href="{% url 'loja' %}{{ categoria.slug }}-xale"
                       >Xales</a
+                    >
+                    <br>
+                    <a
+                      class="cabecalho__link cabecalho__link--tipo"
+                      href="{% url 'loja' %}{{ categoria.slug }}-touca"
+                      >Toucas</a
                     >
                   </li>
                 {% elif categoria.nome == "Tapetes" %}

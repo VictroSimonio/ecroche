@@ -122,6 +122,21 @@
               CÓDIGO DO PRODUTO <br />
               Ref: <span>{{ produto.id }}</span>
             </p>
+            {% elif produto.nome == "Touca Azul Celeste" %}
+            <p>
+              {{ produto.nome }}
+            </p>
+            <p>
+            Material: (tipo de material) <br>
+            Tamanho: 30 x 25cm <br>
+            Cor: Colorido <br>
+            Feito à mão <br>
+            Instruções de cuidado: lavagem à mão com sabão neutro
+            </p>
+            <p>
+              CÓDIGO DO PRODUTO <br />
+              Ref: <span>{{ produto.id }}</span>
+            </p>
             {% endif %}
           </div>
         </div>

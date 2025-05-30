@@ -964,7 +964,6 @@ img {
   cursor: pointer;
 }
 .sliders_control input[type=range]::-moz-range-thumb {
-  -webkit-appearance: none;
   pointer-events: all;
   width: 20px;
   height: 20px;
@@ -1156,37 +1155,6 @@ img {
 .foto_homepage:hover {
   transform: scale(1.03);
 }
-
-
-.banner-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  padding: 0 1rem;
-}
-@media (max-width: 59.375em) {
-  .banner-grid {
-    gap: 0.65rem;
-    padding: 0 0.65rem;
-  }
-}
-@media (max-width: 30em) {
-  .banner-grid {
-    grid-template-columns: 1fr;
-  }
-}
-.banner-individual a img:last-child {
-  display: none;
-}
-@media (max-width: 59.375em) {
-  .banner-individual a img:first-child {
-    display: none;
-  }
-  .banner-individual a img:last-child {
-    display: block;
-  }
-}
-
 .loja {
   display: flex;
   flex-flow: row nowrap;
