@@ -1,8 +1,8 @@
 import mercadopago
 from django.urls import reverse
 
-public_key = "APP_USR-a067d3e3-31b0-47f2-bd5d-1dd4e70e2c57"
-token = "APP_USR-6104662027384698-102814-2efa78b75bec002e728291805a1f81c9-2064784916"
+public_key = "APP_USR-ae8f0eba-6182-4432-ae6d-0e3e74f4c269"
+token = "APP_USR-6601297058736038-060413-340f4f30d5489f63a79677fc0d4db34e-2475616095"
 
 def criar_pagamento(itens_pedido, link):
     # Configure as credenciais
@@ -25,7 +25,6 @@ def criar_pagamento(itens_pedido, link):
     # valor total
     preference_data = {
         "items": itens,
-        "auto_return": "all",
         "back_urls": {
             "success": link,
             "pending": link,
