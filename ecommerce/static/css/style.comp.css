@@ -48,32 +48,57 @@ img {
 }
 
 .principal {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: stretch;
-  justify-content: start;
-  gap: 2.5rem;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: start;
+    gap: 2.5rem;
+    /* --- Novas propriedades para melhor aparência --- */
+    background-color: #ffffff; /* Fundo branco para a área principal */
+    border-radius: 8px; /* Cantos levemente arredondados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.300); /* Sombra suave para destacar */
+    padding: 3rem 2rem; /* Adiciona padding interno para o conteúdo */
+    margin: 2rem auto; /* Centraliza e adiciona margem externa */
+    max-width: 120rem; /* Define uma largura máxima para o conteúdo principal */
+    width: 95%; /* Garante que ela ocupe uma boa parte da largura em telas grandes */
 }
+
 @media (max-width: 59.375em) {
-  .principal {
-    gap: 1.6rem;
-  }
+    .principal {
+        gap: 1.6rem;
+        padding: 2rem 1.5rem; /* Ajusta padding para telas menores */
+        margin: 1.5rem auto; /* Ajusta margem para telas menores */
+    }
 }
+
+@media (max-width: 30em) {
+    .principal {
+        padding: 1.5rem 1rem; /* Ajusta padding para telas muito pequenas */
+        margin: 1rem auto; /* Ajusta margem para telas muito pequenas */
+        width: 100%; /* Ocupa 100% da largura em telas muito pequenas */
+        border-radius: 0; /* Remove border-radius em telas muito pequenas, se desejar */
+        box-shadow: none; /* Remove sombra em telas muito pequenas, se desejar */
+    }
+}
+
 .principal--padding-b {
-  padding-bottom: 7.63rem;
+    padding-bottom: 7.63rem;
 }
+
 @media (max-width: 30em) {
-  .principal--padding-b {
-    padding-bottom: 3.12rem;
-  }
+    .principal--padding-b {
+        padding-bottom: 3.12rem;
+    }
 }
+
 .principal--gap {
-  gap: 7.63rem;
+    gap: 7.63rem;
 }
+
 @media (max-width: 30em) {
-  .principal--gap {
-    gap: 3.12rem;
-  }
+    .principal--gap {
+        gap: 3.12rem;
+    }
 }
 
 /* Largura da barra de rolagem */
@@ -2149,42 +2174,31 @@ img {
   display: flex;
 }
 
+/* Avaliações */
 .conta {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: start;
-  justify-content: start;
-  gap: 3.12rem;
-  padding: 9.54rem 3.12rem;
-  background-color: #f0f0f0;
+    padding: 6.1rem 3.12rem; /* Espaçamento ajustado para um visual melhor */
+    background-color: #f8f8f8; /* Fundo mais claro para a seção */
 }
+
 @media (max-width: 59.375em) {
-  .conta {
-    padding: 6.1rem 3.12rem;
-  }
+    .conta {
+        padding: 4rem 2rem; /* Ajusta o espaçamento para telas menores */
+    }
 }
-@media (max-width: 30em) {
-  .conta {
-    padding: 3.12rem;
-  }
-}
+
 .conta__container {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: start;
-  justify-content: start;
-  gap: 2.5rem;
-  padding: 3.9rem;
-  background-color: #fff;
-  width: 80%;
-  max-width: 100rem;
-  margin: auto;
+    background-color: #ffffff; /* Fundo branco para o conteúdo principal */
+    padding: 3.9rem;
+    border-radius: 8px; /* Cantos levemente arredondados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.300); /* Sombra sutil para profundidade */
+    max-width: 90rem; /* Aumenta a largura máxima para melhor leitura das avaliações */
+    margin: 0 auto; /* Centraliza o contêiner */
 }
+
 @media (max-width: 30em) {
-  .conta__container {
-    width: 100%;
-    padding: 3.12rem;
-  }
+    .conta__container {
+        padding: 2.5rem;
+    }
 }
 .conta__form {
   display: flex;
@@ -2287,14 +2301,14 @@ img {
   margin: 50px auto;
   padding: 20px;
   background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.300);
   border-radius: 8px;
 }
 
 /* Título da FAQ */
 .faq-container h1 {
   font-size: 2em;
-  color: #333;
+  color: #000000;
   text-align: center;
   margin-bottom: 20px;
   font-weight: 600;
@@ -2308,7 +2322,7 @@ img {
 
 .faq-question {
   font-size: 1.2em;
-  color: #333;
+  color: #1d1c1c;
   cursor: pointer;
   padding: 10px;
   margin: 0;

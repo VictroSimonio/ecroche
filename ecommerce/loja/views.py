@@ -184,8 +184,9 @@ def finalizar_pedido(request, id_pedido):
             return render(request, "checkout.html", context)
         else:
             itens_pedido = ItensPedido.objects.filter(pedido=pedido)
-            link = request.build_absolute_uri(reverse('finalizar_pagamento'))
-            link_pagamento, id_pagamento = criar_pagamento(itens_pedido, link)
+            # Construa a URL base aqui e passe apenas a string
+            base_url = request.build_absolute_uri('/')[:-1]  # Remove a barra final
+            link_pagamento, id_pagamento = criar_pagamento(itens_pedido, base_url)
             pagamento = Pagamento.objects.create(id_pagamento=id_pagamento, pedido=pedido)
             pagamento.save()
             return redirect(link_pagamento)

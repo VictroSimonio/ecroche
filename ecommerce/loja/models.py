@@ -7,13 +7,7 @@ class Cliente(models.Model):
     email = models.CharField(max_length=200, null=True, blank=True)
     telefone = models.CharField(max_length=200, null=True, blank=True)
     id_sessao = models.CharField(max_length=200, null=True, blank=True)
-    usuario = models.OneToOneField(
-        User, 
-        null=True, 
-        blank=True, 
-        on_delete=models.CASCADE,
-        related_name='cliente'  # Adicione esta linha
-    )
+    usuario = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return str(self.email)

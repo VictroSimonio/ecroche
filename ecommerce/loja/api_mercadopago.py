@@ -29,7 +29,7 @@ def criar_pagamento(itens_pedido, link):
             "success": link,
             "pending": link,
             "failure": link,
-        }
+        },
     }
     resposta = sdk.preference().create(preference_data)
     link_pagamento = resposta["response"]["init_point"]
