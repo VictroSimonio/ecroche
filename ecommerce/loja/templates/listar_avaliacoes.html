@@ -1,40 +1,49 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
-
 {% block body %}
 
 <body>
-    
     <section class="conta">
-        <div class="conta__container">
-            <h1>Avaliações dos Produtos</h1>
-            <br>
-    <ul>
-        {% for avaliacao in avaliacoes %}
-            <li>
-                <hr>
-                <strong>{{ avaliacao.usuario.username }}</strong> avaliou o produto "<strong>{{ avaliacao.produto }}</strong>":
-                <hr>
-                <br>
-                <p>{{ avaliacao.comentario }}</p>
-                <br>
-                <p><em>Data: {{ avaliacao.data_criacao }}</em></p>
-                <br>
-            </li>
-        {% endfor %}
-    </ul>
-       
-    {% if user.is_authenticated %}
-
-    <a href="{% url 'avaliacao' %}" class="subtotal__botao">Escrever uma nova avaliação</a>
+        <div class="conta__container avaliacoes-container">
+            <h1 class="avaliacoes-titulo">Avaliações dos Produtos</h1>
+            
+            <div class="avaliacoes-lista">
+                {% for avaliacao in avaliacoes %}
+                <div class="avaliacao-card">
+                    <div class="avaliacao-cabecalho">
+                        <div class="avaliacao-usuario">
+                            <i class="fas fa-user-circle"></i>
+                            <strong>{{ avaliacao.usuario.username }}</strong>
+                        </div>
+                        <div class="avaliacao-produto">
+                            avaliou <strong>{{ avaliacao.produto }}</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="avaliacao-conteudo">
+                        <p class="avaliacao-texto">{{ avaliacao.comentario }}</p>
+                    </div>
+                    
+                    <div class="avaliacao-rodape">
+                        <span class="avaliacao-data">
+                            <i class="far fa-calendar-alt"></i>
+                            {{ avaliacao.data_criacao|date:"d/m/Y" }}
+                        </span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            {% if user.is_authenticated %}
+            <div class="avaliacoes-botao-container">
+                <a href="{% url 'avaliacao' %}" class="botao-avaliacao">
+                    <i class="fas fa-pencil-alt"></i> Escrever nova avaliação
+                </a>
+            </div>
+            {% endif %}
         </div>
     </section>
-    {% else %}
-       
-    {% endif %}
 </body>
-
 
 {% endblock %}

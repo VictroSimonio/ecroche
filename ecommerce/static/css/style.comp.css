@@ -2444,5 +2444,101 @@ textarea {
   color: #333333;
   margin-bottom: 20px;
 }
+/* Estilos para a seção de avaliações */
+.avaliacoes-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
 
-/*# sourceMappingURL=style.comp.css.map */
+.avaliacoes-titulo {
+  text-align: center;
+  color: #000000;
+  margin-bottom: 2rem;
+  font-size: 3rem; /* Aumentado */
+}
+
+.avaliacoes-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 2.3rem; /* Aumentado */
+}
+
+.avaliacao-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.8rem; /* Aumentado */
+  font-size: 1.8rem; /* Tamanho de fonte aumentado */
+}
+
+.avaliacao-cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem; /* Aumentado */
+  flex-wrap: wrap;
+  gap: 0.8rem; /* Aumentado */
+}
+
+.avaliacao-usuario {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem; /* Aumentado */
+  color: #000000;
+  font-size: 2rem; /* Aumentado */
+}
+
+.avaliacao-produto {
+  color: #666;
+  font-size: 1.5rem; /* Aumentado */
+}
+
+.avaliacao-texto {
+  color: #333;
+  line-height: 1.6;
+  margin: 1.2rem 0; /* Aumentado */
+  font-size: 1.7rem; /* Aumentado */
+}
+
+.avaliacao-rodape {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.avaliacao-data {
+  color: #888;
+  font-size: 0.95rem; /* Aumentado */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Aumentado */
+}
+
+.botao-avaliacao {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem; /* Aumentado */
+  background: #daa520; /* Cor alterada para dourado */
+  color: white;
+  padding: 1rem 1.8rem; /* Aumentado */
+  border-radius: 4px;
+  text-decoration: none;
+  margin-top: 2rem;
+  font-size: 1.1rem; /* Aumentado */
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
+.botao-avaliacao:hover {
+  background: #b8860b; /* Tom mais escuro para hover */
+}
+
+.avaliacoes-botao-container {
+  text-align: center;
+}
+
+/* Ícones (Font Awesome necessário) */
+.fas, .far {
+  font-size: 1.2rem; /* Aumentado */
+}
