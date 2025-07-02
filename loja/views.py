@@ -147,10 +147,11 @@ def finalizar_pedido(request, id_pedido):
         erro = None
         dados = request.POST.dict()
 
-        total = dados.get("total")
-        total = float(total.replace(",", "."))
+        # --- Toda a sua lógica de validação de endereço, email, etc. continua aqui ---
+        # (O código abaixo é uma réplica do seu, mantido para contexto)
+        total = float(dados.get("total", "0").replace(",", "."))
         pedido = Pedido.objects.get(id=id_pedido)
-        print(total)
+
         if total != float(pedido.preco_total):
             erro = "preco"
 
@@ -158,8 +159,11 @@ def finalizar_pedido(request, id_pedido):
             erro = "endereco"
         else:
             id_endereco = dados.get("endereco")
-            endereco = Endereco.objects.get(id=id_endereco)
-            pedido.endereco = endereco
+            try:
+                endereco = Endereco.objects.get(id=id_endereco)
+                pedido.endereco = endereco
+            except Endereco.DoesNotExist:
+                erro = "endereco"
 
         if not request.user.is_authenticated:
             email = dados.get("email")
@@ -178,20 +182,35 @@ def finalizar_pedido(request, id_pedido):
         codigo_transacao = f"{pedido.id}-{datetime.now().timestamp()}"
         pedido.codigo_transacao = codigo_transacao
         pedido.save()
+        
         if erro:
             enderecos = Endereco.objects.filter(cliente=pedido.cliente)
             context = {"erro": erro, "pedido": pedido, "enderecos": enderecos}
+            messages.error(request, f"Erro de validação: {erro}. Por favor, corrija e tente novamente.")
             return render(request, "checkout.html", context)
-        else:
+        # --- Fim da lógica de validação ---
+
+        # --- Início da chamada para a API (parte corrigida) ---
+        try:
             itens_pedido = ItensPedido.objects.filter(pedido=pedido)
-            # Construa a URL base aqui e passe apenas a string
-            base_url = request.build_absolute_uri('/')[:-1]  # Remove a barra final
-            link_pagamento, id_pagamento = criar_pagamento(itens_pedido, base_url)
-            pagamento = Pagamento.objects.create(id_pagamento=id_pagamento, pedido=pedido)
-            pagamento.save()
-            return redirect(link_pagamento)
-    else:
-        return redirect("loja")   
+            link_pagamento, id_pagamento = criar_pagamento(itens_pedido, request)
+
+            if id_pagamento and link_pagamento:
+                # Sucesso! O ID foi retornado.
+                Pagamento.objects.create(id_pagamento=id_pagamento, pedido=pedido)
+                return redirect(link_pagamento)
+            else:
+                # Falha! O ID não foi retornado. A causa do erro foi impressa no console.
+                messages.error(request, "Não foi possível iniciar o processo de pagamento. Por favor, tente novamente ou contate o suporte.")
+                return redirect("checkout")
+
+        except Exception as e:
+            # Captura exceções mais genéricas que podem ocorrer na view
+            print(f"❌ Erro crítico na view finalizar_pedido: {e}")
+            messages.error(request, "Ocorreu um erro inesperado ao tentar processar seu pagamento. Tente novamente mais tarde.")
+            return redirect("checkout")
+
+    return redirect("loja")
 
 def finalizar_pagamento(request):
     dados = request.GET.dict()
