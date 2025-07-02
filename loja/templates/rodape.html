@@ -1,0 +1,42 @@
+{% load static %}
+<footer class="rodape" id="contato">
+    <div class="rodape-div">
+        <div class="rodape-div-1">
+            <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo-imagem"/>
+        </div>
+    
+        <div class="rodape-div-2">
+            <div class="footer-item">
+                <a href="https://www.instagram.com/croche.nah/" class="footer-link">
+                    <img src="{% static 'images/instagram.png' %}" alt="Insta" class="footer-imagem"/>
+                    <span>: croche.nah</span>
+                </a>
+            </div>
+            <div class="footer-item">
+                <a href="https://crochetiandonani.blogspot.com/" class="footer-link">
+                    <img src="{% static 'images/blogspot.png' %}" alt="Blog" class="footer-imagem"/>
+                    <span>: crochetiandonani</span>
+                </a>
+            </div>
+        </div>
+        
+      
+        <div class="rodape-div-3">
+            <div class="footer-item">
+            <a href="{% url 'sobre' %}" class="footer-link">
+                <img src="{% static 'images/croche.png' %}" alt="Croche" class="footer-imagem"/>
+                <span>: Sobre</span>
+            </a>
+            </div>
+            <div class="footer-item">
+            <a href="{% url 'faq' %}" class="footer-link">
+                <img src="{% static 'images/faq.png' %}" alt="FAQ" class="footer-imagem"/>
+                <span>: FAQ</span>
+            </a>
+            </div>
+        </div>
+    </div>
+    <div class="rodape-banner">
+        <img src="{% static 'images/img-rodape.png' %}" alt="Banner" class="footer-banner"/>
+    </div>
+</footer>

@@ -1,0 +1,115 @@
+.rodape {
+    background-color: #daa520;
+    color: white;
+    width: 100%;
+    font-size: 12px;
+    font-family: helvetica;
+    padding-bottom: 20px;
+}
+
+.rodape a {
+    text-decoration: none;
+    color: white;
+}
+
+.rodape p {
+    margin-bottom: 5px;
+}
+
+.rodape-div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: auto;
+    padding: 10px 10px;
+    justify-content: center;
+}
+
+.rodape-div-1, .rodape-div-2, .rodape-div-3 {
+    display: flex;
+    width: calc(90% / 3 - 20px);
+    padding: 50px;
+    flex-direction: column; /* Alinha os itens na vertical */
+    gap: 25px; /* Espaço entre os links */
+    justify-content: center;
+}
+
+.rodape span {
+    font-size: 20px;
+    color: white;
+}
+
+.logo-imagem {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.footer-item {
+    display: flex;
+    align-items: center; /* Alinha ícone e texto no centro verticalmente */
+}
+
+.footer-imagem {
+    width: 40px;
+    height: auto;
+    margin-right: 5px;
+    filter: invert(1) brightness(2);
+}
+
+.footer-banner {
+    width: auto;
+    height: 200px;
+}
+
+.footer-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.rodape-banner {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 20px;
+}
+
+/* Ajuste para telas médias */
+@media (max-width: 1024px) {
+    .rodape-div-1, .rodape-div-2, .rodape-div-3 {
+        width: 100%; /* Coloca cada coluna em uma linha separada */
+        padding: 15px;
+        text-align: center; /* Centraliza o texto */
+    }
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 768px) {
+    .rodape-div-1, .rodape-div-2, .rodape-div-3 {
+        width: 100%;
+        padding: 15px;
+    }
+    .rodape-div {
+        padding: 30px 0;
+    }
+}
+
+/* Ajuste para telas muito pequenas */
+@media (max-width: 480px) {
+    .rodape {
+        font-size: 10px;
+    }
+    .footer-imagem {
+        width: 30px;
+        margin-right: 4px;
+    }
+    .logo-imagem {
+        width: 80px;
+    }
+    .rodape-banner {
+        padding-top: 10px;
+    }
+}

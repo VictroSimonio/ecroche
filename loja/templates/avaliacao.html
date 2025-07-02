@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block body %}
+
+<head>
+
+    <script>
+        function validarAvaliacao(event) {
+            const avaliacaoInput = document.getElementById("avaliacao");
+            const mensagem = document.getElementById("mensagem");
+            const minLength = 5;  // Número mínimo de caracteres
+
+            if (avaliacaoInput.value.length < minLength) {
+                event.preventDefault();  // Evita o envio do formulário
+                mensagem.textContent = `A avaliação deve ter pelo menos ${minLength} caracteres.`;
+                mensagem.style.color = "red";
+                return false;
+            } else {
+                mensagem.textContent = "Avaliação enviada!";
+                mensagem.style.color = "green";
+            }
+        }
+    </script>
+
+</head>
+
+<main class="principal">
+    <section class="conta">
+        <div class="conta__container">
+            <h1>Avalie o Produto</h1>
+
+            <form method="POST" onsubmit="validarAvaliacao(event)">
+                {% csrf_token %}
+                
+                <!-- Dropdown para selecionar o produto -->
+                <label for="produto">Selecione o Produto:</label><br>
+                <select name="produto" id="produto" required>
+                    <option value="" disabled selected>Selecione</option>
+                    {% for produto in produtos %}
+                        <option value="{{ produto.id }}">{{ produto.nome }}</option>
+                    {% endfor %}
+                </select><br><br>
+
+                <!-- Caixa de texto para a avaliação -->
+                <textarea name="avaliacao" id="avaliacao" rows="10" cols="50" placeholder="Deixe sua opinião aqui..." required></textarea><br><br>
+
+                <button type="submit" class="subtotal__botao">Enviar Avaliação</button>
+            </form>
+
+            <!-- Mensagem de retorno para o usuário -->
+            <p id="mensagem"></p>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

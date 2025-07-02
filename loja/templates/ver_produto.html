@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<main class="principal principal--padding-b principal--gap">
+    <section class="s-produto">
+      
+          <div class="s-produto__carrossel-img" style="overflow: hidden;">
+            <img
+              src="{{ produto.imagem.url }}"
+              alt="Imagem Carrossel 2"
+              
+            />
+          
+        </div>
+
+        <!-- <div class="s-produto__carrossel-botoes">
+          <div
+            class="s-produto__carrossel-botao s-produto__carrossel-botao--selecionado"
+          ></div>
+          <div class="s-produto__carrossel-botao"></div>
+          <div class="s-produto__carrossel-botao"></div>
+          <div class="s-produto__carrossel-botao"></div>
+          <div class="s-produto__carrossel-botao"></div>
+        </div>
+      </div> -->
+
+      <div class="s-produto__informacoes">
+        <div class="s-produto__breadcrumbs">
+          <span><a href="{% url 'loja' %}">Loja</a></span>
+          <span><a href="{% url 'loja' %}{{ produto.categoria.slug }}">{{ produto.categoria.nome }}</a></span>
+          <span><a href="{% url 'loja' %}{{ produto.categoria.slug }}-{{ produto.tipo.slug }}">{{ produto.tipo.nome }}</a></span>
+          <span>
+            <p>{{ produto.nome }}</p>
+          </span>
+        </div>
+
+        <div class="s-produto__infos">
+          <h1 class="s-produto__titulo">{{ produto.nome }}</h1>
+
+          <p class="s-produto__preco">R$ {{ produto.preco }}</p>
+        </div>
+        
+      <form method="POST" action="{% url 'adicionar_carrinho' produto.id %}">
+        {% csrf_token %}
+        {% if tem_estoque %}
+        <div class="s-produto__descricao">
+          <p class="s-produto__descricao-titulo">Descrição do produto</p>
+          <div class="s-produto__descricao-textos">
+            {% if produto.nome == "Dinossauro Planta" %}
+            <p>
+              {{ produto.nome }}
+            </p>
+            <p>
+            Material: (tipo de material) <br>
+            Tamanho: 15 x 10cm <br>
+            Cor: Colorido <br>
+            Feito à mão <br>
+            Instruções de cuidado: lavagem à mão com sabão neutro
+            </p>
+            <p>
+              CÓDIGO DO PRODUTO <br />
+              Ref: <span>{{ produto.id }}</span>
+            </p>
+            {% elif produto.nome == "Bruxo Estudante" %}
+            <p>
+              {{ produto.nome }}
+            </p>
+            <p>
+            Material: (tipo de material) <br>
+            Tamanho: 15 x 10cm <br>
+            Cor: Colorido <br>
+            Feito à mão <br>
+            Instruções de cuidado: lavagem à mão com sabão neutro
+            </p>
+            <p>
+              CÓDIGO DO PRODUTO <br />
+              Ref: <span>{{ produto.id }}</span>
+            </p>
+            {% elif produto.nome == "Xale" %}
+            <p>
+              {{ produto.nome }}
+            </p>
+            <p>
+            Material: (tipo de material) <br>
+            Tamanho: 30 x 25cm <br>
+            Cor: Colorido <br>
+            Feito à mão <br>
+            Instruções de cuidado: lavagem à mão com sabão neutro
+            </p>
+            <p>
+              CÓDIGO DO PRODUTO <br />
+              Ref: <span>{{ produto.id }}</span>
+            </p>
+            {% elif produto.nome == "Tapete Rosa-Marrom" %}
+            <p>
+              {{ produto.nome }}
+            </p>
+            <p>
+            Material: (tipo de material) <br>
+            Tamanho: 30 x 25cm <br>
+            Cor: Colorido <br>
+            Feito à mão <br>
+            Instruções de cuidado: lavagem à mão com sabão neutro
+            </p>
+            <p>
+              CÓDIGO DO PRODUTO <br />
+              Ref: <span>{{ produto.id }}</span>
+            </p>
+            {% elif produto.nome == "Bolsa" %}
+            <p>
+              {{ produto.nome }}
+            </p>
+            <p>
+            Material: (tipo de material) <br>
+            Tamanho: 30 x 25cm <br>
+            Cor: Colorido <br>
+            Feito à mão <br>
+            Instruções de cuidado: lavagem à mão com sabão neutro
+            </p>
+            <p>
+              CÓDIGO DO PRODUTO <br />
+              Ref: <span>{{ produto.id }}</span>
+            </p>
+            {% elif produto.nome == "Touca Azul Celeste" %}
+            <p>
+              {{ produto.nome }}
+            </p>
+            <p>
+            Material: (tipo de material) <br>
+            Tamanho: 30 x 25cm <br>
+            Cor: Colorido <br>
+            Feito à mão <br>
+            Instruções de cuidado: lavagem à mão com sabão neutro
+            </p>
+            <p>
+              CÓDIGO DO PRODUTO <br />
+              Ref: <span>{{ produto.id }}</span>
+            </p>
+            {% elif produto.nome == "Girassol" %}
+            <p>
+              {{ produto.nome }}
+            </p>
+            <p>
+            Material: (tipo de material) <br>
+            Tamanho: 30 x 25cm <br>
+            Cor: Colorido <br>
+            Feito à mão <br>
+            Instruções de cuidado: lavagem à mão com sabão neutro
+            </p>
+            <p>
+              CÓDIGO DO PRODUTO <br />
+              Ref: <span>{{ produto.id }}</span>
+            </p>
+            {% elif produto.nome == "Chaveiro Coração azul" %}
+            <p>
+              {{ produto.nome }}
+            </p>
+            <p>
+            Material: (tipo de material) <br>
+            Tamanho: 30 x 25cm <br>
+            Cor: Colorido <br>
+            Feito à mão <br>
+            Instruções de cuidado: lavagem à mão com sabão neutro
+            </p>
+            <p>
+              CÓDIGO DO PRODUTO <br />
+              Ref: <span>{{ produto.id }}</span>
+            </p>          
+             {% elif produto.nome == "Cacto Feliz" %}
+            <p>
+              {{ produto.nome }}
+            </p>
+            <p>
+            Material: (tipo de material) <br>
+            Tamanho: 30 x 25cm <br>
+            Cor: Colorido <br>
+            Feito à mão <br>
+            Instruções de cuidado: lavagem à mão com sabão neutro
+            </p>
+            <p>
+              CÓDIGO DO PRODUTO <br />
+              Ref: <span>{{ produto.id }}</span>
+            </p>          
+            {% endif %}
+          </div>
+        </div>
+            <button type="submit" class="s-produto__adicicionar">Adicionar ao carrinho</button>
+      </form>
+      {% elif not tem_estoque %}
+        <h3>Item fora de estoque</h3>
+        {% endif %}
+      </div>
+    </section>
+
+  </main>
+
+{% endblock %}

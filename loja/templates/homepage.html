@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+<div class="foto_homepage-section">
+    <a href="{% url 'loja' %}">
+        <img class="foto_homepage" src="{% static 'images/foto_paginicial.png' %}" alt="foto da página inicial">
+    </a>
+</div>
+
+<div class="foto_homepage-section">
+    <a href="{% url 'listar_avaliacoes' %}">
+        <img class="foto_homepage" src="{% static 'images/avaliacoes.png' %}" alt="foto das avaliações">
+    </a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block body %}
+
+<div class="faq-container">
+    <h1>Perguntas Frequentes (FAQ)</h1>
+    
+    <div class="faq-item">
+        <p class="faq-question">Como faço para criar uma conta?</p>
+        <div class="faq-answer">
+            <p>Para criar uma conta, clique no canto superior direito do site no icone de login e preencha as informações necessárias.</p>
+        </div>
+    </div>
+    
+    <div class="faq-item">
+        <p class="faq-question">Quais formas de pagamento são aceitas?</p>
+        <div class="faq-answer">
+            <p>Aceitamos cartões de crédito, débito, e boletos bancários. Consulte a página de pagamento para mais detalhes.</p>
+        </div>
+    </div>
+    
+    <div class="faq-item">
+        <p class="faq-question">Os produtos são feitos à mão?</p>
+        <div class="faq-answer">
+            <p>Sim, todos os nossos produtos de crochê são feitos à mão com materiais de alta qualidade.</p>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/faq.js' %}"></script>
+
+{% endblock %}
