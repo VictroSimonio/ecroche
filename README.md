@@ -1,4 +1,4 @@
-Projeto E-commerce: Crocheteando Nani
+# Projeto E-commerce: Crocheteando Nani
 ## 📖 Sobre o Projeto:
 
 Este projeto consiste no desenvolvimento de um site de e-commerce completo para a cliente Naiara Ribeiro, focado na venda de seus produtos artesanais de crochê.
@@ -40,18 +40,16 @@ Mercado Pago API	Integração para o processamento de pagamentos.
 
 ## 🚀 Como Executar o Projeto Localmente:
 
-Siga os passos abaixo para configurar e executar o projeto em seu ambiente de desenvolvimento.
 
 Clone o repositório:
 
 ```
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
-cd 
+git clone https://github.com/Victrosimao/ecroche.git
+cd ecroche
 ```
 
-Crie e ative um ambiente virtual:
-
-
+### Crie e ative um ambiente virtual:
+```
 # Comando para criar o ambiente
 python -m venv venv
 
@@ -60,27 +58,29 @@ python -m venv venv
 
 # Ativar no Linux/Mac
 source venv/bin/activate
-Instale as dependências:
+```
 
-Bash
-
+### Instale as dependências:
+```
 pip install -r requirements.txt
-Aplique as migrações do banco de dados:
-
-Bash
-
+```
+### Aplique as migrações do banco de dados:
+```
 python manage.py migrate
-Crie um superusuário para acessar a área de administração:
-
-Bash
-
+```
+### Crie um superusuário para acessar a área de administração:
+```
 python manage.py createsuperuser
-Inicie o servidor de desenvolvimento:
-
-Bash
-
+```
+### Inicie o servidor de desenvolvimento:
+```
 python manage.py runserver
-Abra seu navegador e acesse http://127.0.0.1:8000/ para ver o site.
+```
+
+
+### Abra seu navegador e acesse http://127.0.0.1:8000/ para ver o site.
+
+
 
 ## 👨‍💻 Autores:
 
@@ -89,6 +89,7 @@ Desenvolvido por Victor Simão e Iago Campanhol.
 LinkedIn: https://www.linkedin.com/in/victor-sim%C3%A3o-de-matos-9a3724299/
 
 GitHub: https://github.com/Victrosimao
+
 
 
 
