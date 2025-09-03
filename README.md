@@ -5,7 +5,7 @@ Este projeto consiste no desenvolvimento de um site de e-commerce completo para 
 
 Atualmente, a cliente utiliza o Instagram como principal canal de vendas. O objetivo deste projeto é criar uma plataforma dedicada que não apenas profissionalize sua presença online, mas também otimize e automatize a gestão de vendas, oferecendo uma experiência de compra mais fluida e segura para seus clientes.
 
-## Funcionalidades Principais:
+## ✨ Funcionalidades Principais:
 
 O projeto foi planejado para incluir as seguintes funcionalidades:
 
@@ -25,7 +25,7 @@ Painel Administrativo: Uma área para a gestão completa do site, incluindo cada
 
 Canal de Contato: Formulários e links diretos para facilitar a comunicação entre os clientes e a administradora.
 
-## Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
 Este projeto foi construído utilizando as seguintes tecnologias:
 
@@ -38,18 +38,19 @@ JavaScript	Interatividade e dinamismo no front-end.
 SQLite	Banco de dados para armazenamento de produtos, clientes e pedidos.
 Mercado Pago API	Integração para o processamento de pagamentos.
 
-## Como Executar o Projeto Localmente:
+## 🚀 Como Executar o Projeto Localmente:
 
 Siga os passos abaixo para configurar e executar o projeto em seu ambiente de desenvolvimento.
 
 Clone o repositório:
 
+```
 git clone https://github.com/seu-usuario/nome-do-repositorio.git
-cd nome-do-repositorio
+cd 
+```
 
 Crie e ative um ambiente virtual:
 
-Bash
 
 # Comando para criar o ambiente
 python -m venv venv
@@ -81,13 +82,14 @@ Bash
 python manage.py runserver
 Abra seu navegador e acesse http://127.0.0.1:8000/ para ver o site.
 
-- Autor:
+## 👨‍💻 Autores:
 
 Desenvolvido por Victor Simão e Iago Campanhol.
 
 LinkedIn: https://www.linkedin.com/in/victor-sim%C3%A3o-de-matos-9a3724299/
 
 GitHub: https://github.com/Victrosimao
+
 
 
 
